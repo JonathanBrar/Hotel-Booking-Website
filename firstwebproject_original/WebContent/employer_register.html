@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>employer register page</title>
+<script>
+
+	function validate() {
+		var empSSN = document.getElementById("empSSN");
+		var empName = document.getElementById("empName");
+		var empPwd = document.getElementById("empPwd");
+		var empPwdagain = document.getElementById("empPwdagain");
+		if(empSSN.value == "" || empName.value == "" || empPwd.value == "" || empPwdagain.value == "" ){
+			alert("You need to fill all the information");
+			return false;
+		}
+		
+		else if(empSSN.value.length != 8){
+			alert("The length of SSN needs to be 8");
+			return false;
+		}
+		
+		else if(empPwd.value != empPwdagain.value){
+			alert("passwords need to be same");
+			return false;
+		}
+		else
+			return true;
+	}
+
+</script>
+</head>
+<body>
+<form method = "post" action="empRegister">
+please input your SSN:<input type="text" id="empSSN" name="empSSN"><br><br>
+please input your name:<input type="text" id="empName" name="empName"><br><br>
+please input your password:<input type="password" id="empPwd" name="empPwd"><br><br>
+please input your password again:<input type="password" id="empPwdagain" name="empPwdagain"><br><br>
+<button type="submit" value="submit" onclick="return validate();">submit</button>
+<button type="reset" value="reset">reset</button>
+</form>
+
+</body>
+</html>
